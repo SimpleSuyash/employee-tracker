@@ -15,11 +15,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@matti-o7/inquirer-maxlength-input-prompt": "^1.0.1",
     "console.table": "^0.10.0",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
     "inquirer": "^8.2.4",
+    "inquirer-maxlength-input-prompt": "^1.0.2",
     "mysql2": "^3.9.1"
   },
   "devDependencies": {

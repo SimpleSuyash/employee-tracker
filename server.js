@@ -1,10 +1,12 @@
-const express = require('express');
-const { clog } = require('./middleware/clog');
-const api = require("./routes/index.js");
+const express = require("express");
+const { clog } = require("./middleware/clog");
+const api = require("./routes/index");
 
 //Colored symbols for various log levels
 //includes info, success, warning and error
 const logSymbols = require("log-symbols");
+
+const initInquirer = require("./lib/inquirer");
 
 
 const PORT = process.env.PORT || 3001;
@@ -27,6 +29,7 @@ app.use((req, res) => {
 //starting express
 app.listen(PORT, () =>{
   console.log(`    ${logSymbols.success}`, `\x1b[3;92m App listening at http://localhost:${PORT} \x1b[0m`);
+  initInquirer();
 });
 
 

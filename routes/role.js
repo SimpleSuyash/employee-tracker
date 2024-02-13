@@ -1,4 +1,4 @@
-const role = require('express').Router();
+const role = require("express").Router();
 // importing the connection to the database.
 const pool = require("../config/db-connection").pool;
 //importing help function to create id
