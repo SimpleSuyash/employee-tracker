@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
-// Import our modular routers for /tips and /feedback
+// Import our modular routers for /department, /role and /employee
+
 const departmentRouter = require('./department');
 const roleRouter = require('./role');
 const employeeRouter = require('./employee');
