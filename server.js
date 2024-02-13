@@ -8,7 +8,7 @@ const logSymbols = require("log-symbols");
 
 
 const PORT = process.env.PORT || 3001;
-
+//setting up express
 const app = express();
 
 // Import custom middleware, "cLog"
@@ -19,8 +19,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api', api);
 
+// Default response for not found requests
+app.use((req, res) => {
+  res.status(404).end();
+});
 
-
+//starting express
 app.listen(PORT, () =>{
   console.log(`    ${logSymbols.success}`, `\x1b[3;92m App listening at http://localhost:${PORT} \x1b[0m`);
 });
