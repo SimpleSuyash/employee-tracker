@@ -1,6 +1,5 @@
 const express = require('express');
 const { clog } = require('./middleware/clog');
-// const { clog } = require('./middleware/clog');
 const api = require("./routes/index.js");
 
 //Colored symbols for various log levels
