@@ -1,48 +1,37 @@
 
 // importing the connection to the database.
-const pool = require("../config/db-connection").pool;
-let ids =[];
+const connection = require("../config/db-connection");
+//Colored symbols for various log levels
+//includes info, success, warning and error
+const logSymbols = require("log-symbols");
+
 //produces a random number between 1 to 100 
 //ultimately returns a number that is not being used as an id in the given table
-const getARandomId = (idFor)=>{
-    return new Promise((resolve, reject) =>{
-        // Returns a random integer from 1 to 100:
-        let sql;
-        // let aRandomId = Math.floor(Math.random()*100)+1;
-        // console.log(`a random id ${aRandomId}`);
-        if (idFor === "Department"){
-            sql =`SELECT id FROM department`;
-        }else if(idFor === "Role"){
-            sql =`SELECT id FROM role`;
-        }else{
-            sql =`SELECT id FROM employee`;
-        }
-        
-        pool.getConnection((err, connection) =>{
-            if(err){
-                res.status(500).json({error: err.message});
-                return;
-            }
-            connection.query(sql, (err, result) =>{
-                let aRandomId;
-                if(err){
-                    return err.message;
-                }
-                // console.log(result);
-                ids = result.map(item=>{
-                    return item.id;
-                });
+const getARandomId = async (idFor)=>{
+    
+    let aRandomId;
+    let queryString;
+   
 
-                do{
-                    aRandomId = Math.floor(Math.random()*100)+1;
-                    // console.log(aRandomId);
-                }while(ids.includes(aRandomId));
-                connection.release();
-                // console.log(`finally ${aRandomId}`);
-                resolve(aRandomId);
-            });
-        });
-    });
+    if (idFor === "Department"){
+        queryString =`SELECT id FROM department`;
+    }else if(idFor === "Role"){
+        queryString =`SELECT id FROM role`;
+    }else{
+        queryString =`SELECT id FROM employee`;
+    }
+    
+    try{
+        const result = await connection.query(queryString);
+        // console.log(result);
+        const ids = result.map(item=> item.id);
+        do{
+            aRandomId = Math.floor(Math.random()*100)+1;
+        }while(ids.includes(aRandomId));
+        return aRandomId;
+    }catch(error){
+        console.error(`${logSymbols.error}`, `\x1b[3;31m${error}\x1b[0m`);
+    }
 };
 
 
