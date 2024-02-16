@@ -1,28 +1,31 @@
+/*
+    Defines Inquirer
+*/
+
 //importing the inquirer package
 const inquirer = require("inquirer");
-//importing inquirer-maxlength-input-prompt package
-// const maxLengthInputPrompt = require("inquirer-maxlength-input-prompt");
-// inquirer.registerPrompt("input-max30", maxLengthInputPrompt);
-
-// const{validateName, validateSalary} = require("./validations");
-
+//contains all the questions
+const questions = require("./lib/prompts");
+//displays query result in a table format
+const consoleTbl = require("console.table");
 //Colored symbols for various log levels
 //includes info, success, warning and error
 const logSymbols = require("log-symbols");
 
-const consoleTbl = require("console.table");
 
-const questions = require("./questions");
-const connection = require("../config/db-connection");
-// const fetch = require("node-fetch");
-const {viewAllDepartments, addNewDepartment, deleteDepartment, viewUtilizedBudgetOfDepartment} = require("./department");
-const {viewAllRoles, addNewRole, deleteRole} = require("./role");
-const {viewAllEmployees, addNewEmployee, deleteEmployee, updateEmployeeRole, updateEmployeeManager, viewEmployeesByManager, viewEmployeesByDepartment} = require("./employee");
+//database connection setting
+const connection = require("./config/db-connection");
+
+//importing all the queries
+const {viewAllDepartments, addNewDepartment, deleteDepartment, viewUtilizedBudgetOfDepartment} = require("./lib/department");
+const {viewAllRoles, addNewRole, deleteRole} = require("./lib/role");
+const {viewAllEmployees, addNewEmployee, deleteEmployee, updateEmployeeRole, updateEmployeeManager, viewEmployeesByManager, viewEmployeesByDepartment} = require("./lib/employee");
 //enum values for main/menu/task question
-const UseCases = require("./useCases");
+//Menu questions' text are long and tedious and prone to typos
+const UseCases = require("./lib/useCases");
 
 
-let askAgain =true;
+let askAgain = true;
 const initInquirer =  async () => {
     //loading the inquirer to initiate the prompts
     try{
@@ -30,59 +33,55 @@ const initInquirer =  async () => {
         switch (answer["main-question"]){
 
             //---------------------Department Queries
-            case UseCases.AllDepartments:
+            case UseCases.AllDepartments: // Read 
                 viewAllDepartments();
                 break;
-            case UseCases.NewDepartment:
+            case UseCases.NewDepartment:   // Create 
                 addNewDepartment(answer);
                 break;   
-            case UseCases.DeleteDepartment:
+            case UseCases.DeleteDepartment: // Delete 
                 deleteDepartment(answer);
                 break;
-            case UseCases.UtilizedBudget:
+            case UseCases.UtilizedBudget:   // Read Budget
                 viewUtilizedBudgetOfDepartment(answer);
                 break;
             //---------------------Role Queries    
-            case UseCases.AllRoles:
+            case UseCases.AllRoles: // Read
                 viewAllRoles();
                 break;
-            case UseCases.NewRole:
+            case UseCases.NewRole: // Add
                 addNewRole(answer);
                 break;
-            case UseCases.DeleteRole:
+            case UseCases.DeleteRole: // Delete
                 deleteRole(answer);
                 break;
             //---------------------Employee Queries    
-            case UseCases.AllEmployees:
+            case UseCases.AllEmployees: // Read 
                 viewAllEmployees();
                 break;
-            case UseCases.EmployeesOfManager:
+            case UseCases.EmployeesOfManager: // Read Managers
                 viewEmployeesByManager(answer);
                 break;
-            case UseCases.EmployeesOfDepartment:
+            case UseCases.EmployeesOfDepartment: // Read Departments
                 viewEmployeesByDepartment(answer);
                 break;
-            case UseCases.NewEmployee:
+            case UseCases.NewEmployee: // Add
                 addNewEmployee(answer);
                 break;
-            case UseCases.DeleteEmployee:
+            case UseCases.DeleteEmployee: // Delete
                 deleteEmployee(answer);
                 break;
-            case UseCases.EmployeeNewRole:
+            case UseCases.EmployeeNewRole: // Update Role
                 updateEmployeeRole(answer);
                 break;
-            case UseCases.EmployeeNewManager:
+            case UseCases.EmployeeNewManager: // Update Manager
                 updateEmployeeManager(answer);
                 break;
-            
-            
             case "Quit":
                 askAgain = false;
                 console.log(`${logSymbols.success}`, `\x1b[3;92m Employee Tracker App has Closed \x1b[0m`);
                 connection.close();
                 process.exit(0);
-               
-                // break;
         }
     }catch(error){
         if (error.isTtyError) {
@@ -93,10 +92,14 @@ const initInquirer =  async () => {
         }
     }
 }
-const showPrompts = async () =>{
+
+//intializing inquirer
+const init = async () =>{
     do{
         await initInquirer();
     }while(askAgain);
 };
 
-module.exports = showPrompts;
+
+//initializing the app
+init();

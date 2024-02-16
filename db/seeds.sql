@@ -5,7 +5,7 @@ INSERT INTO department (id, department_name) VALUES
     (3, "Marketing"),
     (4, "Administration"),
     (5, "IT"),
-    (6, "Maintenance"),
+    (6, "Engineering"),
     (7, "Human Resource"),
     (8, "Sales"),
     (9, "Reseach and Development");
@@ -72,4 +72,5 @@ INSERT INTO employee(id, first_name, last_name, role_id, manager_id) VALUES
     (27, "Elis", "Marsh", 19, 2),
     (28, "Michael", "Frick", 15, 14),
     (29, "Susan", "King", 17, 16),
-    (30,"Kelvin", "Leong", 7, 6);
+    (30,"Kelvin", "Leong", 7, 6),
+    (31, "Albert", "Einstein", 19, 2);
