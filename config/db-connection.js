@@ -1,3 +1,7 @@
+/*
+    Contains database connection settings
+*/
+
 // Import and require mysql2
 const mysql = require("mysql2");
 const util = require("node:util"); 
@@ -18,7 +22,6 @@ connection = mysql.createConnection(
     },
     console.log(`${logSymbols.success}`, `\x1b[3;92mConnected to the my_company_db database.\x1b[0m`)
 );
-// ).promise();
 // promise wrapper to enable async await with MYSQL
 connection.query = util.promisify(connection.query).bind(connection);
 

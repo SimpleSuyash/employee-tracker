@@ -22,6 +22,7 @@ By creating this project, I learnt to install the `Node.js` and the `npm`, and b
 
 1. [Installation](#installation)
 1. [Usage](#usage)
+1. [Issues](#issues)
 1. [Licence](#licence)
 1. [Screenshots](#screenshots)
 1. [Demo](#demo)
@@ -33,18 +34,6 @@ By creating this project, I learnt to install the `Node.js` and the `npm`, and b
 1. Install `NPM` by typing
     ```       
     npm init -y
-    ```
-1. Install `Express`     
-    ```         
-    npm i express
-    ```
-1. Install `Body-Parser` Plugin
-    ```
-    npm i body-parser --save
-    ```
-1. Install `Nodemon` Plugin as  Dev Dependency
-    ```
-    npm i -D nodemon
     ```
 1. Install `Inquirer`
     ```
@@ -58,41 +47,53 @@ By creating this project, I learnt to install the `Node.js` and the `npm`, and b
     ```
     npm i dotenv
     ```
-
-
-After installation of all the required plugins and packages, change the `script` value to  the following:            
-       
-    {            
-        "start": "node server",               
-        "dev": "nodemon server"                  
-    }                  
-
+1. Install `MySQL2` 
+    ```
+    npm i mysql2
+    ```
+1. Install `Console Table` for displaying query result
+    ```
+    npm i console.table
+    ```
 And the `package.json` file should look like below:              
-![package.json](./public/assets/images/package.png)
+![package.json](./assets/screenshots/package.png)
 
 ## Usage
-During the development, 
-- Open a new terminal in `Command Prompt` or `Git Bash` or `Visual Studio Code Terminal`
-- Change directory to the parent folder of `server.js`
-- Initiate the `Nodemon` by typing the following, which will automatically restart the server everytime the server-side code is changed.
+- Change the .env.copy file to .env, and change your password and database name in the file
+![env file](./assets/screenshots/env.png)     
+- Navigate to `db`, and conect to databse by typing in `mysql -u root -p`, and type in password   
+![Database connection](./assets/screenshots/connection.png)
+- Again, navigate to `db`, and source `schema.sql` and `seeds.sql`
     ```
-    npm run dev
+    source schema.sql;
     ```
-- Type the following in the broswer to open the app
     ```
-    localhost:3001
+    source seeds.sql;
     ```
+   
+## Issues
+This app has some issue.          
+
+1. The menu prompt should automatically display as soon as the result from the user's previous query has been displayed, but it doesn't. To get the prompt, the user must press the `↑` and `↓` keys.             
+![Menu not reappering](./assets/screenshots/menu%20not%20appering.png)             
+
+1. The section of the current menu prompt is rendered partially over the section of the previous prompt.                 
+![Sections overlapping](./assets/screenshots/sections%20overlapping.png)        
+
+1. Somehow the 0 for salary is not accepted as a number, or as a valid salary.              
+![Salaray validation error](./assets/screenshots/validation%20error.png)      
+
 ## Licence
 
 This app is licensed under [**WTFPL**](http://www.wtfpl.net/about/)
 
 ## Screenshots
 
-Screenshot showing the Note Take app index page          
-![Index Page](./public/assets/images/index.png)
+Screenshot showing the Employee Tracker app starting         
+![The App starting](./assets/screenshots/app%20starting.png)
 
-Screenshot showing notes page             
-![Notes Page](./public/assets/images/notes.png)
+Screenshot showing the Employee Tracker app closing        
+![The App starting](./assets/screenshots/app%20closing.png)
 
 ## Demo
 

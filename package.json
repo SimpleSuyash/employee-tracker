@@ -2,13 +2,12 @@
   "name": "employee-tracker",
   "version": "1.0.0",
   "description": "This app helps to view and manage departments, roles and employees.",
-  "main": "server.js",
+  "main": "index.js",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "start": "node server",
-    "dev": "nodemon server",
+    "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -17,13 +16,9 @@
   "dependencies": {
     "console.table": "^0.10.0",
     "dotenv": "^16.4.1",
-    "express": "^4.18.2",
     "inquirer": "^8.2.4",
     "inquirer-maxlength-input-prompt": "^1.0.2",
-    "mysql2": "^3.9.1",
-    "node-fetch": "^2.7.0"
+    "mysql2": "^3.9.1"
   },
-  "devDependencies": {
-    "nodemon": "^3.0.3"
-  }
+  "devDependencies": {}
 }
