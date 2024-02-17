@@ -12,9 +12,9 @@ This app lets users view and manage the departments, job roles, and employees of
 
 ##  Description
 
-Through commandline interface, the users can view departmenst, add a new department, update and delete an exsisting department. Similarly, job roles and employes can be managed. 
+Through commandline interface, the users can view departments, add a new department, update and delete an existing department. Similarly, job roles and employes can be managed. 
 
-By creating this project, I learnt to install the `Node.js` and the `npm`, and build and use `modules` which enable us to separate logically distinct part of the script into different scripting files. I also learnt to use various included packages in `node_modules` such as `chalk`, `figures`, `log-symbols`. I also learnt [`ANSI Escape Codes`](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797), which helps to change the style of console log text. I also learnt to design `MySql` database schema, populate relational data, and perform various `CRUD` queries.
+By creating this project, I learnt to create `modules` which enable us to separate logically distinct part of the project into different scripting files, and export and import those modules. This project espically help me understand the complex interconnection between modules. I also learnt to use various third party packages in `node_modules` such as `chalk`, `figures`, `log-symbols`. I also learnt [`ANSI Escape Codes`](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797), which helps to change the style of console log text. I also learnt to design `MySql` database schema, populate relational data, and perform various `CRUD` queries.
 
 
 ## Table of Contents
@@ -30,7 +30,7 @@ By creating this project, I learnt to install the `Node.js` and the `npm`, and b
 ## Installation 
 
 1. Download and Install the `Node.js` 
-1. Install `NPM` by typing
+1. Initialize the project 
     ```       
     npm init -y
     ```
@@ -58,10 +58,16 @@ And the `package.json` file should look like below:
 ![package.json](./assets/screenshots/package.png)
 
 ## Usage
-- Change the .env.copy file to .env, and change your password and database name in the file
+If you wish to use this repo,
+- Get a copy of this repo to your local machine
+- Install the node module
+    ```
+    npm i
+    ```
+- Change the .env.copy file to .env, and type in your password and database name in the file
 ![env file](./assets/screenshots/env.png)     
 
-- Navigate to `db`, and conect to databse by typing in `mysql -u root -p`, and type in password   
+- Navigate to `db`, and connect to the databse by typing in `mysql -u root -p`, and type in your password   
 ![Database connection](./assets/screenshots/connection.png)
 
 - Again, navigate to `db`, and source `schema.sql` and `seeds.sql`
@@ -80,7 +86,7 @@ This app has some issues:
 1. The section of the current menu prompt is rendered partially over the section of the previous prompt.                 
 ![Sections overlapping](./assets/screenshots/sections%20overlapping.png)        
 
-1. Somehow the 0 for salary is not accepted as a number, or as a valid salary.              
+1. Somehow, the `0` for salary is not accepted as a number, or as a valid salary.              
 ![Salaray validation error](./assets/screenshots/validation%20error.png)      
 
 ## Licence
