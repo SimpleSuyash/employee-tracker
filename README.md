@@ -97,11 +97,7 @@ Screenshot showing the Employee Tracker app closing
 ![The App starting](./assets/screenshots/app%20closing.png)
 
 ## Demo
+https://github.com/SimpleSuyash/employee-tracker/assets/149545043/cc0c10ab-fc3f-4e8b-8c34-70e92a187750
 
-                      
-
-## Deployed App    
-
-[Please click to open the live app deployed to Heroku.]()
 
 
