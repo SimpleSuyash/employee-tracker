@@ -25,8 +25,9 @@ const {viewAllEmployees, addNewEmployee, deleteEmployee, updateEmployeeRole, upd
 const UseCases = require("./lib/useCases");
 
 
-let askAgain = true;
+
 const initInquirer =  async () => {
+    let askAgain = true;
     //loading the inquirer to initiate the prompts
     try{
         const answer = await inquirer.prompt(questions);
@@ -83,6 +84,10 @@ const initInquirer =  async () => {
                 connection.close();
                 process.exit(0);
         }
+        //check if the main question needs to be asked again
+        if(askAgain){
+            initInquirer();
+        }
     }catch(error){
         if (error.isTtyError) {
             console.error(`${logSymbols.error}`, `\x1b[3;31mPrompt couldn't be rendered in the current environment\x1b[0m`);
@@ -93,13 +98,5 @@ const initInquirer =  async () => {
     }
 }
 
-//intializing inquirer
-const init = async () =>{
-    do{
-        await initInquirer();
-    }while(askAgain);
-};
-
-
 //initializing the app
-init();
+initInquirer();

@@ -1,5 +1,5 @@
 
-[![inquirer](https://img.shields.io/badge/inquirer-blue?style=for-the-badge&logo=npm&logoColor=white&labelColor=red)](https://www.npmjs.com/package/inquirer) [![express js](https://img.shields.io/badge/express.js-blue?style=for-the-badge&logo=express&logoColor=white&labelColor=red)](https://expressjs.com/) [![node.js](https://img.shields.io/badge/Node.js-blue?style=for-the-badge&logo=Node.js&logoColor=white&labelColor=red)](https://nodejs.org/en) [![npm](https://img.shields.io/badge/npm-blue?style=for-the-badge&logo=npm&logoColor=white&labelColor=red)](https://www.npmjs.com/) [![mysql](https://img.shields.io/badge/mysql-blue?style=for-the-badge&logo=mysql&logoColor=white&labelColor=red)](https://www.mysql.com/)
+[![inquirer](https://img.shields.io/badge/inquirer-blue?style=for-the-badge&logo=npm&logoColor=white&labelColor=red)](https://www.npmjs.com/package/inquirer) [![node.js](https://img.shields.io/badge/Node.js-blue?style=for-the-badge&logo=Node.js&logoColor=white&labelColor=red)](https://nodejs.org/en) [![npm](https://img.shields.io/badge/npm-blue?style=for-the-badge&logo=npm&logoColor=white&labelColor=red)](https://www.npmjs.com/) [![mysql](https://img.shields.io/badge/mysql-blue?style=for-the-badge&logo=mysql&logoColor=white&labelColor=red)](https://www.mysql.com/)
 
 
 <div align="right"> 
@@ -14,8 +14,7 @@ This app lets users to view and manage the departments, job roles, and employees
 
 Through commandline interface, the users can view departmenst, add a new department, update and delete an exsisting department. Similarly, job roles and employes can be managed. 
 
-By creating this project, I learnt to install the `Node.js` and the `npm`, and build and use `modules` which enable us to separate logically distinct part of the script into different scripting files. I also learnt to use various included packages in `node_modules` such as `chalk`, `figures`, `log-symbols`. I also learnt [`ANSI Escape Codes`](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797), which helps to change the style of console log text.  I also learnt to design a database schema, populate relational data, and perform various `CRUD` queries.
-
+By creating this project, I learnt to install the `Node.js` and the `npm`, and build and use `modules` which enable us to separate logically distinct part of the script into different scripting files. I also learnt to use various included packages in `node_modules` such as `chalk`, `figures`, `log-symbols`. I also learnt [`ANSI Escape Codes`](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797), which helps to change the style of console log text. I also learnt to design `MySql` database schema, populate relational data, and perform various `CRUD` queries.
 
 
 ## Table of Contents
@@ -61,8 +60,10 @@ And the `package.json` file should look like below:
 ## Usage
 - Change the .env.copy file to .env, and change your password and database name in the file
 ![env file](./assets/screenshots/env.png)     
+
 - Navigate to `db`, and conect to databse by typing in `mysql -u root -p`, and type in password   
 ![Database connection](./assets/screenshots/connection.png)
+
 - Again, navigate to `db`, and source `schema.sql` and `seeds.sql`
     ```
     source schema.sql;
