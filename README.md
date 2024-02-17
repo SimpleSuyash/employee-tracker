@@ -8,7 +8,7 @@
 
 # Employee Tracker    
 
-This app lets users to view and manage the departments, job roles, and employees of a given company.
+This app lets users view and manage the departments, job roles, and employees of a given company.
 
 ##  Description
 
@@ -71,9 +71,8 @@ And the `package.json` file should look like below:
     ```
     source seeds.sql;
     ```
-   
 ## Issues
-This app has some issue.          
+This app has some issues:          
 
 1. The menu prompt should automatically display as soon as the result from the user's previous query has been displayed, but it doesn't. To get the prompt, the user must press the `↑` and `↓` keys.             
 ![Menu not reappering](./assets/screenshots/menu%20not%20appering.png)             
@@ -98,6 +97,3 @@ Screenshot showing the Employee Tracker app closing
 
 ## Demo
 https://github.com/SimpleSuyash/employee-tracker/assets/149545043/cc0c10ab-fc3f-4e8b-8c34-70e92a187750
-
-
-
