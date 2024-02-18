@@ -14,7 +14,7 @@ This app lets users view and manage the departments, job roles, and employees of
 
 Through commandline interface, the users can view departments, add a new department, update and delete an existing department. Similarly, job roles and employes can be managed. 
 
-By creating this project, I learnt to create `modules` which enable us to separate logically distinct part of the project into different scripting files, and export and import those modules where needed. This project espically helped me understand the complex interconnection between modules. I was able to grasp the concept of modular programming and asynchronous JavaScript.
+By creating this project, I learnt to create `modules` which enable us to separate logically distinct part of the project into different scripting files, and export and import those modules where needed. This project especially helped me understand the complex interconnection between modules. I was able to grasp the concept of modular programming and asynchronous JavaScript.
 
 I also learnt to use various third party packages in `node_modules` such as `chalk`, `figures`, `log-symbols`. I also learnt [`ANSI Escape Codes`](https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797), which helps to change the style of console log text. I also learnt to design `MySql` database schema, populate relational data, and perform various `CRUD` queries.
 
